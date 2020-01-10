@@ -5,14 +5,10 @@ public class Candy extends Sweet
     private String name;
     private double weight;
 
-    public Candy()
+    public Candy(boolean homemade, int calories,
+                 String name, double weight)
     {
-        name = "Skittles";
-        weight = 0.1;
-    }
-
-    public Candy(String name, double weight)
-    {
+        super(homemade, calories);
         this.name = name;
         this.weight = weight;
     }

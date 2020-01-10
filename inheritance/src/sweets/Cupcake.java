@@ -6,16 +6,12 @@ public class Cupcake extends Sweet
     private boolean hasWrapper;
     private boolean hasFilling;
 
-    public Cupcake()
-    {
-        frosting = "Chocolate";
-        hasFilling = true;
-        hasWrapper = true;
-    }
-
-    public Cupcake(String frosting, boolean hasWrapper,
+    public Cupcake(boolean homemade, int calories,
+                   String frosting, boolean hasWrapper,
                    boolean hasFilling)
     {
+        super(homemade, calories);
+
         this.frosting = frosting;
         this.hasWrapper = hasWrapper;
         this.hasFilling = hasFilling;

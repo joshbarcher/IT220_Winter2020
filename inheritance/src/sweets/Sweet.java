@@ -5,12 +5,6 @@ public class Sweet
     private boolean homemade;
     private int calories;
 
-    public Sweet()
-    {
-        homemade = true;
-        calories = 300;
-    }
-
     public Sweet(boolean homemade, int calories)
     {
         this.homemade = homemade;
