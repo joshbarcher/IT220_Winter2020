@@ -6,14 +6,32 @@ public class RecursionExamples
 
     public static void main(String[] args)
     {
-        System.out.println("fac(3): " + factorial(3));
-        System.out.println("fac(4): " + factorial(4));
-        System.out.println("fac(5): " + factorial(5));
-        System.out.println("fac(10): " + factorial(10));
-        System.out.println("fac(15): " + factorial(15));
-        System.out.println("fac(20): " + factorial(20));
-        System.out.println("fac(30): " + factorial(30));
-        System.out.println("fac(50): " + factorial(50));
+//        System.out.println("fac(3): " + factorial(3));
+//        System.out.println("fac(4): " + factorial(4));
+//        System.out.println("fac(5): " + factorial(5));
+//        System.out.println("fac(10): " + factorial(10));
+//        System.out.println("fac(15): " + factorial(15));
+//        System.out.println("fac(20): " + factorial(20));
+//        System.out.println("fac(30): " + factorial(30));
+//        System.out.println("fac(50): " + factorial(50));
+
+        System.out.println(sumOfPositiveInts(5));
+    }
+
+    public static int sumOfPositiveInts(int n)
+    {
+        if (n < 1)
+        {
+            throw new IllegalArgumentException("Positive inputs only!");
+        }
+
+        //base case
+        if (n == 1)
+        {
+            return 1;
+        }
+
+        return n + sumOfPositiveInts(n - 1);
     }
 
     public static long factorial(long num)
@@ -76,11 +94,13 @@ public class RecursionExamples
             return; //stop calling the method
         }
 
+        //recurse
+        printDownToZero(num - 1);
+
         //do something... (print the number)
         System.out.println(num);
 
-        //recurse
-        printDownToZero(num - 1);
+        //it was here...
     }
 
     public static void foo()
