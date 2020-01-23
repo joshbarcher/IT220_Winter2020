@@ -25,6 +25,13 @@ public class PairProgrammingRecursion
         System.out.println(checkParens("[(()))"));
         System.out.println(checkParens("(((]))"));
         System.out.println(checkParens("(((x)))"));
+        System.out.println();
+
+        System.out.println(countHi("xxhixx"));
+        System.out.println(countHi("xhixhix"));
+        System.out.println(countHi("hi"));
+        System.out.println(countHi("xxhxixx"));
+        System.out.println();
     }
 
     public static int powerN(int base, int power)
@@ -101,6 +108,25 @@ public class PairProgrammingRecursion
         else
         {
             return false;
+        }
+    }
+
+    public static int countHi(String input)
+    {
+        if (input.length() < 2)
+        {
+            return 0;
+        }
+
+        //find the index of hi
+        int index = input.indexOf("hi");
+        if (index == -1) //not found
+        {
+            return 0;
+        }
+        else
+        {
+            return 1 + countHi(input.substring(index + 2));
         }
     }
 }
