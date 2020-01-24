@@ -15,7 +15,22 @@ public class RecursionExamples
 //        System.out.println("fac(30): " + factorial(30));
 //        System.out.println("fac(50): " + factorial(50));
 
-        System.out.println(sumOfPositiveInts(5));
+        System.out.println("fib(100): " + fib(100));
+    }
+
+    public static int fib(int n)
+    {
+        System.out.println("Called fib(" + n + ")");
+        //base cases
+        if (n == 0 || n == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            int fibNumber = fib(n - 1) + fib(n - 2);
+            return fibNumber;
+        }
     }
 
     public static int sumOfPositiveInts(int n)
