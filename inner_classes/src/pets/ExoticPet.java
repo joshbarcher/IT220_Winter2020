@@ -1,6 +1,6 @@
-package sorting.pets;
+package pets;
 
-public class ExoticPet extends sorting.pets.Pet
+public class ExoticPet extends Pet
 {
     private boolean illegal;
 

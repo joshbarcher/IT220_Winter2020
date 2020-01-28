@@ -1,4 +1,4 @@
-package sorting.pets;
+package pets;
 
 public class AquaticPet extends Pet
 {
