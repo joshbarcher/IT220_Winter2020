@@ -26,6 +26,7 @@ public class BoundedStack
 
         theStack[topOfStack] = element;
         topOfStack++;
+        size++;
         return true;
     }
 
@@ -44,6 +45,7 @@ public class BoundedStack
         //remove the top element of the stack
         theStack[topOfStack - 1] = null;
         topOfStack--;
+        size--;
 
         return top;
     }
@@ -60,21 +62,19 @@ public class BoundedStack
         return theStack[topOfStack - 1];
     }
 
+    //returns the number of elements in the stack
     public int size()
     {
-        //TODO
-        return 0;
+        return size;
     }
 
     public boolean isEmpty()
     {
-        //TODO
-        return false;
+        return size == 0;
     }
 
     public boolean isFull()
     {
-        //TODO
-        return false;
+        return size == maxSize;
     }
 }
