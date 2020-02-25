@@ -32,26 +32,60 @@ public class LinkedList
             }
             current.next = new Node(element);
         }
+        size++;
     }
 
-    public boolean remove(Object element)
+    public boolean contains(Object element)
     {
+        Node current = head;
+        while (current != null)
+        {
+            if (current.data.equals(element))
+            {
+                return true;
+            }
+            current = current.next;
+        }
         return false;
     }
 
     public int size()
     {
-        return 0;
+        return size;
+    }
+
+    public boolean isEmpty()
+    {
+        return size == 0;
     }
 
     public void clear()
     {
-
+        head = null;
+        size = 0;
     }
 
     public Object get(int index)
     {
-        return null;
+        //check for bad index
+        if (index < 0 || index >= size)
+        {
+            throw new IndexOutOfBoundsException("Bad index given to get()");
+        }
+
+        //we need to move to the specified node
+        Node current = head;
+        for (int i = 0; i < index; i++)
+        {
+            current = current.next;
+        }
+
+        return current.data;
+    }
+
+    public boolean remove(Object element)
+    {
+        return false;
     }
 
     private class Node
@@ -68,6 +102,11 @@ public class LinkedList
         {
             this.data = data;
             this.next = next;
+        }
+
+        public String toString()
+        {
+            return data.toString();
         }
     }
 }
