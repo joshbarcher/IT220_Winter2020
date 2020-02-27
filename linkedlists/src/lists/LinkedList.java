@@ -20,17 +20,21 @@ public class LinkedList
         //is the linked list empty
         if (head == null)
         {
-            head = new Node(element);
+            head = tail = new Node(element);
         }
         else
         {
             //search to the end of the linked list and insert the new node
-            Node current = head;
-            while (current.next != null)
-            {
-                current = current.next;
-            }
-            current.next = new Node(element);
+//            Node current = head;
+//            while (current.next != null)
+//            {
+//                current = current.next;
+//            }
+//            current.next = new Node(element);
+
+            //speed up our insertions
+            tail.next = new Node(element);
+            tail = tail.next;
         }
         size++;
     }
@@ -85,7 +89,59 @@ public class LinkedList
 
     public boolean remove(Object element)
     {
-        return false;
+        //is the list empty?
+        if (head == null)
+        {
+            return false;
+        }
+        else if (head.data.equals(element))
+        {
+            head = head.next;
+            size--;
+            return true;
+        }
+        else
+        {
+            //we will search for the element (it may or may not be there...)
+            Node current = head;
+            while (current.next != null && !current.next.data.equals(element))
+            {
+                current = current.next;
+            }
+
+            //how do I then remove the node
+            if (current.next == null)
+            {
+                //not found!
+                return false;
+            }
+            else
+            {
+                //found!
+
+                //if the removed element is our tail, then adjust the tail pointer
+                if (current.next == tail)
+                {
+                    tail = current;
+                }
+
+                current.next = current.next.next;
+                size--;
+                return true;
+            }
+        }
+    }
+
+    public String toString()
+    {
+        String result = "H -> ";
+        Node current = head;
+        while (current != null)
+        {
+            result += current.data + " -> ";
+            current = current.next;
+        }
+        return result + "null";
     }
 
     private class Node
