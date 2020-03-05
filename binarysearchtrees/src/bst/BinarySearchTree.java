@@ -19,6 +19,7 @@ public class BinarySearchTree
         if (root == null)
         {
             root = new Node(element);
+            size++;
         }
         else
         {
@@ -35,12 +36,13 @@ public class BinarySearchTree
             //the element is already in the tree, stop (return)!
             return;
         }
-        else if (currentNode.data.compareTo(elementToInsert) > 0)
+        else if (currentNode.data.compareTo(elementToInsert) > 0) //look to the left
         {
             if (currentNode.left == null)
             {
                 //no left child
                 currentNode.left = new Node(elementToInsert);
+                size++;
             }
             else
             {
@@ -48,9 +50,23 @@ public class BinarySearchTree
                 add(elementToInsert, currentNode.left);
             }
         }
+        else if (currentNode.data.compareTo(elementToInsert) < 0) //look to the right
+        {
+            if (currentNode.right == null)
+            {
+                //no right child
+                currentNode.right = new Node(elementToInsert);
+                size++;
+            }
+            else
+            {
+                //there is a right child, go search there
+                add(elementToInsert, currentNode.right);
+            }
+        }
     }
 
-    public boolean contains()
+    public boolean contains(Comparable search)
     {
         return false;
     }
@@ -62,12 +78,12 @@ public class BinarySearchTree
 
     public int size()
     {
-        return 0;
+        return size;
     }
 
     public boolean isEmpty()
     {
-        return false;
+        return size == 0;
     }
 
     private class Node
