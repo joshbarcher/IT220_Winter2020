@@ -68,7 +68,49 @@ public class BinarySearchTree
 
     public boolean contains(Comparable search)
     {
-        return false;
+        return contains(search, root);
+    }
+
+    private boolean contains(Comparable search, Node current)
+    {
+        if (current == null)
+        {
+            return false; //not found!
+        }
+
+        if (current.data.compareTo(search) == 0)
+        {
+            return true; //found!
+        }
+        else if (current.data.compareTo(search) > 0) //look to the left
+        {
+            return contains(search, current.left);
+        }
+        else //if (current.data.compareTo(search) < 0) //look to the right
+        {
+            return contains(search, current.right);
+        }
+    }
+
+    public boolean containsIterative(Comparable search)
+    {
+        Node current = root;
+        while (current != null)
+        {
+            if (current.data.compareTo(search) == 0)
+            {
+                return true; //found!
+            }
+            else if (current.data.compareTo(search) > 0) //look to the left
+            {
+                current = current.left;
+            }
+            else //if (current.data.compareTo(search) < 0) //look to the right
+            {
+                current = current.right;
+            }
+        }
+        return false; //not found!
     }
 
     public void remove()
